@@ -1,0 +1,708 @@
+body{
+    background: #F8F8FF;
+
+    --box-width:60vw;
+    --box-height:80vh;
+
+    --input-border-radius:1vmin;
+
+
+    font-family: Arial,'Microsoft JhengHei';
+
+    margin: 0;
+
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    background: #99CCFF;
+
+    width: var(--box-width);
+    height: var(--box-height);
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 20px;
+
+    border-radius: var(--input-border-radius);
+}
+
+.leftBar{
+    flex: 0.05;
+    background: #484848;
+
+    display: flex;
+    flex-direction: column;
+
+    align-content: space-around;
+}
+
+.funcBar{
+    display: flex;
+    flex-direction: column;
+
+
+    align-content: space-around;
+    margin: 1vmin;
+}
+
+.friends{
+    flex: 0.35;
+    background: #E8E8E8;
+
+    border-right: 1px solid #E0E0E0;
+}
+
+.main-window{
+    flex: 0.6;
+    background: white;
+
+    display: grid;
+    grid-template-rows: 8vh 1fr;
+}
+
+.usericon{
+    width: 5vmin;
+    height: 5vmin;
+    margin: 1vmin;
+}
+
+.funcicon{
+    width: 3vmin;
+    height: 3vmin;
+    margin: 1vmin;
+
+    cursor: pointer;
+}
+
+.redcomment{
+    width: 3vmin;
+    height: 3vmin;
+    position: absolute;
+    margin-left: 3vmin;
+}
+
+.redcomment>img{
+    position: absolute;
+    width: 2.5vmin;
+    height: 2.5vmin;
+}
+
+.redcomment>span{
+    position: absolute;
+    color: white;
+    font-size: 0.5vmin;
+
+    width: 2.5vmin;
+
+    margin: auto 0;
+
+    text-align: center;
+
+    line-height: 2.5vmin;
+    cursor: default;
+}
+
+.boxicon{
+    width: 4vmin;
+    height: 4vmin;
+    margin: auto;
+
+}
+
+.friendsheader{
+    display: flex;
+    flex-direction: row;
+
+    align-content: space-around;
+
+    background: white;
+
+    height: auto;
+
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.searchbox{
+    flex: 0.7;
+    margin: auto;
+
+    text-align: center;
+
+    border: 2px solid #E0E0E0;
+    border-radius: 1vmin;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    height:3vh;
+
+}
+
+.searchbox>input{
+    margin: 5px auto;
+    border:none;
+    outline: none;
+}
+
+.addfriend{
+    flex: 0.1;
+    margin:auto;
+
+    text-align: center;
+
+    height:3vh;
+
+    border-radius: 1vmin;
+    background: #E0E0E0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addfriend:hover{
+    background: #A8A8A8;
+    cursor: pointer;
+}
+
+.addfriend>img{
+    width: 20px;
+    height: 20px;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.friends{
+    display: grid;
+    grid-template-rows: 8vh auto;
+}
+
+.friendslist{
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+.box{
+    background: #F0F0F0;
+    height: 7vh;
+
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+
+.box:hover{
+    background: #D8D8D8;
+}
+
+.box>span{
+    flex: 0.9;
+    margin: auto;
+    cursor: default;
+}
+
+.labelbox{
+    width: 100%;
+    height:3vh;
+    background:#F0F0F0;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size:15px;
+    color: #A8A8A8;
+}
+
+.hiddenscrollbar::-webkit-scrollbar{
+    display: none;
+}
+
+::-webkit-scrollbar{
+    width: 1vmin;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #A8A8A8;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 3vmin;
+    background: #D8D8D8;
+}
+
+::-webkit-scrollbar-track{
+    background: #F0F0F0;
+}
+::-webkit-scrollbar-track-piece{
+    background: #F0F0F0;
+}
+
+
+.coverpage {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+    display: none;
+}
+
+.addfriendcontrol{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    width: 30vw;
+    height: 40vh;
+
+    background: white;
+
+}
+
+.addfriendcontent{
+    margin: 5vmin;
+
+    display: grid;
+    grid-template-rows: 3fr 3fr 2fr 2fr 2fr;
+
+
+}
+
+h2{
+    text-align: center;
+}
+
+.wrong{
+    text-align: center;
+    color: red;
+}
+
+.confirmcontrol{
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmcontrol>button{
+    width: 5vw;
+    height: 3vh;
+
+    margin: auto 10px;
+
+    background: transparent;
+
+    border-radius: 1vmin;
+    border: 3px solid #E0E0E0;
+}
+
+.confirmcontrol>button:hover{
+    background: #E0E0E0;
+}
+
+.specialbox{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+
+}
+
+.specialbox>span{
+    text-align: left;
+    flex: 0.7;
+    cursor: default;
+    margin: auto 0;
+}
+
+.specialboxicon{
+
+    margin: auto 3vw auto auto;
+    width: 4vmin;
+    height: 4vmin;
+
+}
+
+.hidden{
+    display: none;
+}
+
+.mainheader{
+    border-bottom: 1px solid #E0E0E0;
+    height: auto;
+}
+
+.chosen{
+    background: #C8C8C8;
+}
+
+.chosen:hover{
+    background: #C8C8C8;
+}
+
+
+.mainother{
+    display: grid;
+    grid-template-rows: 55vh 1fr;
+
+}
+
+.contentWindow{
+    border-bottom: 1px solid #E0E0E0;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputWindow{
+    background: white;
+
+    display: grid;
+    grid-template-rows: 0.5fr 4fr 1.5fr;
+}
+
+.friendpagecontent{
+    border-bottom: none;
+    grid-template-rows: 1fr;
+
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+.friendreqbox{
+
+    height: 7vh;
+    width: 80%;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+    margin: 0 auto;
+
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.friendreqbox>div{
+    margin: auto 0;
+}
+
+.friendreqbox>div>span{
+    display: block;
+    width: 100%;
+}
+
+.commentspan{
+    font-size: 5px;
+    opacity: 0.5;
+    margin-top: 1vmin;
+
+    cursor: default;
+}
+
+.friendreqboxbutton{
+    margin: auto 0;
+
+    text-align: center;
+    border-radius: 1vmin;
+    border: 3px solid #E0E0E0;
+
+    cursor: pointer;
+}
+
+.friendreqboxbutton:hover{
+    background: #E0E0E0;
+}
+
+.chatboxicon{
+    width: 4vmin;
+    height: 4vmin;
+    margin: 1vmin;
+
+    display: inline-block;
+}
+
+
+.chatbox{
+    display: grid;
+}
+
+.chatbox>div>p{
+    white-space: normal;
+    word-break: break-word;
+}
+
+.chatboxpright{
+    text-align: right;
+    background: #99FF99;
+    padding: 1vmin;
+    border-radius: 2vmin;
+}
+
+.chatboxpleft{
+    text-align: left;
+    padding: 1vmin;
+    border-radius: 2vmin;
+    background: #E8E8E8;
+}
+
+.chatboxright{
+    grid-template-columns: 9fr 1fr;
+}
+
+.chatboxleft{
+    grid-template-columns: 1fr 9fr;
+}
+
+.chatboxpage{
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+.inputWindowText{
+    font-size: 20px;
+}
+
+.inputWindowText>textarea{
+    width: 98%;
+    height: 85%;
+    outline: none;
+    resize: none;
+    border: none;
+    font-size: 15px;
+}
+
+.inputWindowButton{
+    text-align: right;
+    padding-left: 80%;
+}
+
+.inputWindowButton>div{
+    color: #3300FF;
+    background: #F0F0F0;
+    border-radius: 1vmin;
+    text-align: center;
+    height: 3vmin;
+    width: 10vmin;
+    line-height: 3vmin;
+    cursor: default;
+}
+
+.inputWindowButton>div:hover{
+    background: #E0E0E0;
+}
+
+.redcommentmessage{
+    width: 2vmin;
+    height: 2vmin;
+    position: absolute;
+}
+
+.redcommentmessage>img{
+    position: absolute;
+    width: 1.5vmin;
+    height: 1.5vmin;
+    margin-left: 5vmin;
+    margin-top: 0.8vmin;
+}
+
+.createGroupCoverPage{
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+    display: none;
+
+}
+
+.createGroupControl{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    width: 50vw;
+    height: 60vh;
+
+    background: white;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.createGroupLeft{
+    border-right: 1px solid #E8E8E8;
+    background: white;
+}
+
+.createGroupRight{
+    background: white;
+    display: grid;
+    grid-template-rows: 8fr 0.5fr;
+    padding: 2vmin;
+}
+
+.createGroupLST{
+    overflow-x: hidden;
+    overflow-y: overlay;
+
+    height: 55vh;
+}
+
+.createGroupButton{
+
+    margin: 1vmin;
+
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 5%;
+}
+
+.createGroupInput>input{
+    outline: none;
+    border: 1px solid #E0E0E0;
+    border-radius: 1vmin;
+
+    height: 3vmin;
+    padding: 0;
+    width: 20vmin;
+}
+
+.createGroupbox{
+    background: white;
+    border-bottom: none;
+}
+
+.createGroupbox:hover{
+    background: #D8D8D8;
+}
+
+.createGroupButtonB{
+    text-align: right;
+    margin-left: 1vmin;
+}
+
+.createGroupButtonB>button{
+    color: white;
+    background: #33d883;
+    border-radius: 1vmin;
+    text-align: center;
+    height: 3vmin;
+    width: 10vmin;
+    line-height: 3vmin;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.disa>button{
+    cursor: default;
+    display: none;
+}
+
+
+.createGroupButtonB>button:hover{
+    background: #99FF99;
+}
+
+.BB>button:hover{
+    background: #E0E0E0;
+}
+
+.BB>button{
+    background:white;
+    border: 1px solid #E0E0E0;
+    color: black;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.9rem;
+  visibility: hidden;
+}
+input[type='checkbox']::after {
+  position: absolute;
+  top: 0;
+  background-color: white;
+    border: 1px solid grey;
+  color: #33d883;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  visibility: visible;
+  padding-left: 0;
+  text-align: center;
+  content: ' ';
+  border-radius: 50%;
+}
+
+input[type='checkbox']:checked::after {
+  content: '✓';
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+
+.showMore{
+    margin: auto 0;
+    margin-left: 5vmin;
+    cursor: pointer;
+}
+
+.showMoreCoverPage{
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+    display: none;
+
+}
+
+.showMoreControl{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    width: 30vw;
+    height: 60vh;
+
+    background: white;
+
+    display: grid;
+    grid-template-rows: 1fr 45vh 1fr;
+}
+
+.showMoreContent{
+    background: white;
+
+    overflow-x: hidden;
+    overflow-y: overlay;
+
+}
+

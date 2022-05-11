@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎用户{{ name }}</title>
+
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename = 'css/chatstyle.css') }}"/>
+    <script src="{{ url_for('static',filename = 'js/jquery-3.6.0.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename = 'js/chatjs.js') }}" type="text/javascript"></script>
+</head>
+<body>
+<div class="showMoreCoverPage">
+    <div class="showMoreControl">
+        <div class="showMoreHeader">
+            <h2>小組成員資訊</h2>
+        </div>
+        <div class="showMoreContent">
+
+        </div>
+        <div style="text-align: center">
+            <div class="createGroupButtonB BB"  style="text-align: center"><button id="showMoreBack">返回</button></div>
+        </div>
+    </div>
+</div>
+<div class="createGroupCoverPage">
+    <div class="createGroupControl">
+        <div class="createGroupLeft">
+           <h2>请勾选需要新增的联络人</h2>
+            <div class="createGroupLST" id="createLSTLeft">
+            </div>
+        </div>
+        <div class="createGroupRight">
+            <div class="createGroupLST" id="createLSTRight">
+            </div>
+            <div class="createGroupButton">
+                <div class="createGroupInput"><input type="text" value="" maxlength="10" placeholder="请输入十个字以内的群名" id="createGroupName"/></div>
+                <div class="createGroupButtonB" id="createConfirm"><button>新增</button></div>
+                <div class="createGroupButtonB BB" id="createExit"><button>取消</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="coverpage">
+    <div class="addfriendcontrol">
+        <div class="addfriendcontent">
+            <h2>请输入朋友用户名进行搜索：</h2>
+            <div class="searchbox"><input id="addfriendFromSQL" type="text" placeholder="用户名："/></div>
+            <div class="searchbox"><input id="addfriendFromSQLcomment" type="text" placeholder="留言："/></div>
+            <div class="specialbox hidden" id="showsearchuser">
+                <img id="addfriendicon" class="specialboxicon"/>
+                <span id="addfriendname"></span>
+            </div>
+            <div class="wrong hidden" id="cantfounduser">
+                没有找到该用户！！！
+            </div>
+            <div class="confirmcontrol">
+                <button style="background: #E0E0E0" id="confirm" disabled>确认添加</button>
+                <button id="back">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="leftBar">
+        <img class="usericon" src="{{ url_for('static',filename = 'userIcon/'+picsrc) }}"/>
+        <div class="funcBar">
+            <div>
+                <div class="redcomment hidden" id="firstred">
+                    <img src="{{ url_for('static',filename ='img/redcircle.png') }}"/>
+                    <span></span>
+                </div>
+                <img class="funcicon" id="chatIcon" src="{{ url_for('static',filename = 'img/chatIconFocus.png') }}"/>
+            </div>
+            <div>
+                <div class="redcomment hidden" id="secondred">
+                    <img src="{{ url_for('static',filename ='img/redcircle.png') }}"/>
+                    <span></span>
+                </div>
+                <img class="funcicon" id="friendsIcon" src="{{ url_for('static',filename = 'img/friendsIcon.png') }}"/>
+            </div>
+            <div>
+                <img style="margin-top: 55vh" class="funcicon" id="logoutIcon" src="{{ url_for('static',filename = 'img/logout.png') }}"/>
+            </div>
+        </div>
+    </div>
+    <div class="friends">
+        <div class="friendsheader">
+            <div class="searchbox"><input type="text"/></div>
+            <div class="addfriend"><img id="addfriend" src="{{ url_for('static',filename = 'img/plus.png') }}"/></div>
+        </div>
+        <div class="friendslist hiddenscrollbar" id="friendslist">
+
+        </div>
+    </div>
+    <div class="main-window">
+        <div class="friendsheader mainheader">
+            <h2 style="margin-left: 2vw" id="mainheadertopic"></h2>
+        </div>
+        <div class="mainother">
+            <div class="contentWindow chatboxpage" id="contentWindow">
+            </div>
+            <div class="inputWindow" id="inputWindow">
+                <div>
+                    <input style="position: absolute;display: none" id="uploadfilebutton" type="file" name="" value="">
+                    <label for="uploadfilebutton">
+                        <img id="uploadfile" style="margin-left:1vmin;width: 2vmin;cursor: pointer" src="{{ url_for('static',filename = 'img/file-open.png') }}"/>
+                    </label>
+                </div>
+                <div class="inputWindowText"><textarea value=""></textarea></div>
+                <div class="inputWindowButton"><div>传送 (S)</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

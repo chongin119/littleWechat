@@ -1,0 +1,24 @@
+{% extends "originalauthLayout.html" %}
+{% block title %}
+登录首页
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Web聊天软件</h1>
+    <form method="post">
+        <label for="username" class="text-left">帐号：</label>
+        <input id="username" name="username" value="" type="text" required/>
+
+        <label for="password" class="text-left">密码：</label>
+        <input id="password" name="password" value="" type="password" required/>
+        {% for message in get_flashed_messages() %}
+            <div class="wrong">{{ message }}</div>
+        {% endfor %}
+        <input id="submit" type="submit" value="登录">
+    </form>
+    <div class="alink">
+        <a href="{{ url_for('register') }}">没有帐号？点此注册</a>
+    </div>
+</div>
+{% endblock %}
