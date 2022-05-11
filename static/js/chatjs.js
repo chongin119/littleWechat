@@ -95,8 +95,8 @@ function addfriendbutton(){
            $('.coverpage').fadeIn(300);
        }else{
 
-           //明天写这里 拉群 改showchatfriend 新增一个coverpage
-           console.log($(this).attr('src'));
+
+           //console.log($(this).attr('src'));
 
            createGroup();
            $('#createConfirm').addClass('disa');
@@ -189,8 +189,7 @@ function changetoSecond(){
         $('#newfriend').addClass('chosen');
         $('#mainheadertopic').html('新的朋友');
 
-        checkaddfriend();
-
+        //checkaddfriend();
         scrollbarAct();
     });
 
@@ -398,7 +397,7 @@ function getnews(){
         url: "/getnews",
         data:{"message":"needCounter"},
         success:function(resp){
-            if(resp.counter !== ""){
+            if(resp.counter !== 0){
                 $('#secondred').removeClass('hidden');
                 $('#secondred>span').html(`${resp.counter}`);
             }else{
@@ -467,6 +466,7 @@ function checkaddfriend(){
                             url:"/confirmFriendReq",
                             data:{"username":$(`#username${i}`).val()},
                             success:function(resp){
+                                getnews();
                                 checkaddfriend();
                                 showfriendlist();
                             }
@@ -575,7 +575,7 @@ function showchatfriend(){
 
            clearInterval(newmessageclockid);
            //newmessageclockid = setInterval(getEachUnRead,checktime);
-           getEachUnRead();
+           //getEachUnRead();
 
            //console.log(lstupdateMessageCount);
 
@@ -583,8 +583,10 @@ function showchatfriend(){
            if(lstupdateMessageCount === -1){
                //console.log("aaaa");
                selector = $('#chatfriend1');
-               showmessage();
                clickToRead();
+               getnews();
+               getEachUnRead();
+               showmessage();
                lstupdateMessageCount = $('#firstred>span').html();
            }
 
@@ -593,8 +595,10 @@ function showchatfriend(){
                     $(this).parents("div:eq(0)").children(".box").removeClass('chosen');
                     $(this).addClass('chosen');
                     selector = $(this);
-                    showmessage();
                     clickToRead();
+                    getnews();
+                    getEachUnRead();
+                    showmessage();
                });
            }
        }
